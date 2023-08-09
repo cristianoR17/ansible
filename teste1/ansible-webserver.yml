@@ -1,0 +1,18 @@
+---
+
+- name: Instalar Apache
+  hosts: webserver
+  become: true
+
+  tasks:
+    - name: Instalar Apache
+      apt: name=apache2 update_cache=yes state=lastest
+
+    - name: Inicia Apache
+      service:
+        name: apache2
+        state: started
+        enable: yes
+
+    - name: Reinicia Apache
+      service: name=apache2 state=restarted        

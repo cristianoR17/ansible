@@ -1,0 +1,20 @@
+---
+
+- name: Instalar Pacotes 
+  hosts: webserver
+  become: true
+  vars:
+     packages: [ 'vim', 'arp-scan', 'net-tools', 'htop', 'gdisk', 'ntpdate', 'restartd', 'telnet', 'net-tools', 'traceroute', 'rsync', 'nfs-common', 'nfs-kernel-server' ]  
+  tasks:
+     - name: Update apt-cache 
+       apt: update_cache=yes
+ 
+     - name: Upgrade all packages on debian servers  
+       when: ansible_os_family == 'Debian'
+       apt: upgrade=yes force_apt_get=yes
+
+     - name: Install Package
+       apt: name={{ item }} state=latest
+       with_items: "{{ packages }}"  
+     
+    

@@ -1,0 +1,21 @@
+arquitetura
+
+	control node
+	  ambiente onde o ansible esta instalado via remoto
+		->criar um arquivo inverntario.txt, adicionar os hosts
+		-> install sshpass
+		-> comando:
+				ansible -i inventario.txt all -u root -k -m ping
+				ansible -i inventario.txt all -u root -k -m apt -a "name=lshw"
+				ansible -i inventario.txt all -u root -k -m user -a "name=cristiano"
+				ansible-playbook -i hosts.yml ansible-webserver.yml -u root -k -vvv -become
+				ansible-playbook -i hosts.yml ansible-webserver.yml -u root -k -vvv -become
+				
+
+	manager node
+		host remoto que recebe o comando
+		
+	inventory
+		arquivo onde esta os hosts gerenciaveis
+		
+		

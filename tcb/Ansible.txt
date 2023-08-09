@@ -1,0 +1,44 @@
+
+
+Gerenciamento de configuração: Processo usado para manter o sistema se mantenha de forma esperada e consistente
+	executar de forma esperada
+	automatização 
+	agilidade
+	
+	
+Ansible:
+	Ferramenta automatização de provisionamento ->
+	gerenciamento implantação  e orquestração
+	
+	-> Recursos do Ansible
+	-> Inventario Ansible
+	-> modulos(apt, user, file, service, system)
+	-> Ansible AD HOC- Ferramenta via linha de comando
+	-> playbook - Conjunto de plays que invocam  as task
+	-> variaveis 
+	-> condicionais
+	-loop
+	-variaveis(vars)
+	-condicionais(when) --Ansible facts
+	-loops
+	-roles ****
+	Inventario dinamico
+	
+	
+	-->> Comandos:
+		ansible host01 -m gather_facts
+		ansible host01 -m setup
+		ansible host01 -m setup -a "filter=ansible_distribution"
+		ansible all -m setup | grep -e 'ansible_os_family\|ansible_python_version\|ansible_pkg_mgr'
+		ansible host02 -m copy -a "src=index.html dest=/var/www/html" -b
+		
+		ansible-galaxy role init roles/[directory]
+	
+
+    Links:
+		https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html
+	
+	
+	
+	 
+		

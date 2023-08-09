@@ -1,0 +1,25 @@
+- name: Instalar Pacotes 
+  hosts: webserver
+  become: true
+  vars_files:
+    - vars/packages.yml
+  tasks:
+    - name: Update apt-cache and upgrade all packages on Debian servers  
+      apt:
+        update_cache: yes
+        upgrade: yes
+        force_apt_get: yes
+      when: ansible_os_family == 'Debian'
+      tags: 
+        - packages
+
+    - name: Install Packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      loop: "{{ packages }}"
+      when: packages is defined
+      tags: 
+        - packages
+
+ 

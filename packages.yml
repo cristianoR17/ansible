@@ -1,0 +1,13 @@
+vim
+arp-scan 
+net-tools
+htop
+gdisk
+ntpdate
+restartd 
+telnet 
+net-tools 
+traceroute 
+rsync
+nfs-common
+nfs-kernel-server
